@@ -26,5 +26,33 @@
     "description": "Introduktionsportal för Onboarding av Ellen.",
     "url": "http://onboarding.192.168.19.13.nip.io/ellen",
     "icon": "user"
+  },
+  {
+    "id": "skyddsrum",
+    "name": "Skyddsrum",
+    "description": "System för hantering av skyddsrum.",
+    "url": "http://skyddsrum.192.168.19.13.nip.io/",
+    "icon": "activity"
+  },
+  {
+    "id": "beredskapsplan",
+    "name": "Beredskapsplan",
+    "description": "Organisatorisk beredskapsplanering.",
+    "url": "https://beredskapsplan.192.168.19.13.nip.io/Beredskapsplan",
+    "icon": "terminal"
+  },
+  {
+    "id": "mbti",
+    "name": "MBTI",
+    "description": "Applikation för personlighetstyper.",
+    "url": "http://mbti.192.168.19.13.nip.io/",
+    "icon": "user"
+  },
+  {
+    "id": "boomr",
+    "name": "Boomr",
+    "description": "Hantering och kommunikation för Boomr.",
+    "url": "http://boomr.192.168.19.13.nip.io/",
+    "icon": "activity"
   }
 ]
