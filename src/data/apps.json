@@ -1,0 +1,30 @@
+[
+  {
+    "id": "dozzle",
+    "name": "Dozzle",
+    "description": "Realtidsloggar för Docker-containrar.",
+    "url": "https://dozzle.192.168.19.13.nip.io",
+    "icon": "terminal"
+  },
+  {
+    "id": "netdata",
+    "name": "Netdata",
+    "description": "Övervakning och larm för systemprestanda.",
+    "url": "https://netdata.192.168.19.13.nip.io",
+    "icon": "activity"
+  },
+  {
+    "id": "onboarding-mikko",
+    "name": "Onboarding Mikko",
+    "description": "Introduktionsportal för Onboarding av Mikko.",
+    "url": "http://onboarding.192.168.19.13.nip.io/mikko",
+    "icon": "user"
+  },
+  {
+    "id": "onboarding-ellen",
+    "name": "Onboarding Ellen",
+    "description": "Introduktionsportal för Onboarding av Ellen.",
+    "url": "http://onboarding.192.168.19.13.nip.io/ellen",
+    "icon": "user"
+  }
+]
