@@ -4,6 +4,7 @@
     "name": "Dozzle",
     "description": "Realtidsloggar för Docker-containrar.",
     "url": "https://dozzle.192.168.19.13.nip.io",
+    "image": "/Skyddsprodukter-Portal/screenshots/dozzle.jpg",
     "icon": "terminal"
   },
   {
@@ -11,20 +12,15 @@
     "name": "Netdata",
     "description": "Övervakning och larm för systemprestanda.",
     "url": "https://netdata.192.168.19.13.nip.io",
+    "image": "/Skyddsprodukter-Portal/screenshots/netdata.jpg",
     "icon": "activity"
   },
   {
-    "id": "onboarding-mikko",
-    "name": "Onboarding Mikko",
-    "description": "Introduktionsportal för Onboarding av Mikko.",
-    "url": "http://onboarding.192.168.19.13.nip.io/mikko",
-    "icon": "user"
-  },
-  {
-    "id": "onboarding-ellen",
-    "name": "Onboarding Ellen",
-    "description": "Introduktionsportal för Onboarding av Ellen.",
-    "url": "http://onboarding.192.168.19.13.nip.io/ellen",
+    "id": "onboarding",
+    "name": "Onboarding",
+    "description": "Gemensam introduktionsportal för Onboarding.",
+    "url": "http://onboarding.192.168.19.13.nip.io/",
+    "image": "/Skyddsprodukter-Portal/screenshots/onboarding.jpg",
     "icon": "user"
   },
   {
@@ -32,6 +28,7 @@
     "name": "Skyddsrum",
     "description": "System för hantering av skyddsrum.",
     "url": "http://skyddsrum.192.168.19.13.nip.io/",
+    "image": "/Skyddsprodukter-Portal/screenshots/skyddsrum.jpg",
     "icon": "activity"
   },
   {
@@ -39,6 +36,7 @@
     "name": "Beredskapsplan",
     "description": "Organisatorisk beredskapsplanering.",
     "url": "https://beredskapsplan.192.168.19.13.nip.io/Beredskapsplan",
+    "image": "/Skyddsprodukter-Portal/screenshots/beredskapsplan.jpg",
     "icon": "terminal"
   },
   {
@@ -46,6 +44,7 @@
     "name": "MBTI",
     "description": "Applikation för personlighetstyper.",
     "url": "http://mbti.192.168.19.13.nip.io/",
+    "image": "/Skyddsprodukter-Portal/screenshots/mbti.jpg",
     "icon": "user"
   },
   {
@@ -53,6 +52,7 @@
     "name": "Boomr",
     "description": "Hantering och kommunikation för Boomr.",
     "url": "http://boomr.192.168.19.13.nip.io/",
+    "image": "/Skyddsprodukter-Portal/screenshots/boomr.jpg",
     "icon": "activity"
   }
 ]

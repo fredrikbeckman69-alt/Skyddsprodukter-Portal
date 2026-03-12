@@ -1,37 +1,23 @@
 import React from 'react';
 
-// Simple SVG icon mapper to keep dependencies low
-const IconMap = ({ name }) => {
-  switch (name) {
-    case 'terminal':
-      return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="4 17 10 11 4 5"></polyline>
-          <line x1="12" y1="19" x2="20" y2="19"></line>
-        </svg>
-      );
-    case 'activity':
-      return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-        </svg>
-      );
-    case 'user':
-    default:
-      return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-          <circle cx="12" cy="7" r="4"></circle>
-        </svg>
-      );
-  }
-};
+// Using base path from Vite to ensure GH Pages relative links work
+const BASE_PATH = import.meta.env.BASE_URL || '/';
 
 const AppCard = ({ app }) => {
   return (
     <a href={app.url} className="card" target="_blank" rel="noopener noreferrer">
-      <div className="card-icon">
-        <IconMap name={app.icon} />
+      
+      <div className="card-image-wrapper">
+        <img 
+          src={`${app.image}`} 
+          alt={`${app.name} preview`} 
+          className="card-image" 
+          onError={(e) => {
+            e.target.onerror = null; 
+            e.target.style.display = 'none';
+            // Optional: fallback to an icon or solid color
+          }}
+        />
       </div>
       
       <div className="card-title">
