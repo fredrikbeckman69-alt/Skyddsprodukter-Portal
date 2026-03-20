@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/Skyddsprodukter-Portal/', // Necessary for GitHub Pages compatibility
+  base: '/', // Deployed on Linux server via Cloudflare Tunnel
 })

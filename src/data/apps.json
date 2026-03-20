@@ -1,18 +1,26 @@
 [
   {
-    "id": "dozzle",
-    "name": "Dozzle",
-    "description": "Realtidsloggar för Docker-containrar.",
-    "url": "https://dozzle.192.168.19.13.nip.io",
-    "image": "/Skyddsprodukter-Portal/screenshots/dozzle.jpg",
+    "id": "beredskapsplan",
+    "name": "Beredskapsplan",
+    "description": "Organisatorisk beredskapsplanering.",
+    "url": "https://beredskapsplan.192.168.19.13.nip.io/Beredskapsplan",
+    "image": "/screenshots/beredskapsplan.png",
     "icon": "terminal"
   },
   {
-    "id": "netdata",
-    "name": "Netdata",
-    "description": "Övervakning och larm för systemprestanda.",
-    "url": "https://netdata.192.168.19.13.nip.io",
-    "image": "/Skyddsprodukter-Portal/screenshots/netdata.jpg",
+    "id": "boomr",
+    "name": "Boomr",
+    "description": "Hantering och kommunikation för Boomr.",
+    "url": "http://boomr.192.168.19.13.nip.io/",
+    "image": "/screenshots/boomr.png",
+    "icon": "activity"
+  },
+  {
+    "id": "skyddsrum",
+    "name": "Skyddsrum",
+    "description": "System för hantering av skyddsrum.",
+    "url": "http://skyddsrum.192.168.19.13.nip.io/",
+    "image": "/screenshots/skyddsrum.png",
     "icon": "activity"
   },
   {
@@ -20,39 +28,23 @@
     "name": "Onboarding",
     "description": "Gemensam introduktionsportal för Onboarding.",
     "url": "http://onboarding.192.168.19.13.nip.io/",
-    "image": "/Skyddsprodukter-Portal/screenshots/onboarding.jpg",
+    "image": "/screenshots/onboarding.png",
     "icon": "user"
-  },
-  {
-    "id": "skyddsrum",
-    "name": "Skyddsrum",
-    "description": "System för hantering av skyddsrum.",
-    "url": "http://skyddsrum.192.168.19.13.nip.io/",
-    "image": "/Skyddsprodukter-Portal/screenshots/skyddsrum.jpg",
-    "icon": "activity"
-  },
-  {
-    "id": "beredskapsplan",
-    "name": "Beredskapsplan",
-    "description": "Organisatorisk beredskapsplanering.",
-    "url": "https://beredskapsplan.192.168.19.13.nip.io/Beredskapsplan",
-    "image": "/Skyddsprodukter-Portal/screenshots/beredskapsplan.jpg",
-    "icon": "terminal"
   },
   {
     "id": "mbti",
     "name": "MBTI",
     "description": "Applikation för personlighetstyper.",
     "url": "http://mbti.192.168.19.13.nip.io/",
-    "image": "/Skyddsprodukter-Portal/screenshots/mbti.jpg",
+    "image": "/screenshots/mbti.png",
     "icon": "user"
   },
   {
-    "id": "boomr",
-    "name": "Boomr",
-    "description": "Hantering och kommunikation för Boomr.",
-    "url": "http://boomr.192.168.19.13.nip.io/",
-    "image": "/Skyddsprodukter-Portal/screenshots/boomr.jpg",
-    "icon": "activity"
+    "id": "dozzle",
+    "name": "Dozzle",
+    "description": "Realtidsloggar för Docker-containrar.",
+    "url": "https://dozzle.192.168.19.13.nip.io",
+    "image": "/screenshots/dozzle.png",
+    "icon": "terminal"
   }
 ]

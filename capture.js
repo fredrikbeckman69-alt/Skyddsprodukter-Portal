@@ -8,7 +8,7 @@ const apps = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'src/data/apps.
   const browser = await puppeteer.launch({
     headless: "new",
     ignoreHTTPSErrors: true,
-    args: ['--no-sandbox']
+    args: ['--no-sandbox', '--ignore-certificate-errors', '--disable-web-security']
   });
 
   const outDir = path.join(process.cwd(), 'public', 'screenshots');
@@ -19,14 +19,29 @@ const apps = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'src/data/apps.
     try {
       const page = await browser.newPage();
       await page.setViewport({ width: 1280, height: 800 });
-      // We wait until network is mostly idle or after 5 seconds
-      await page.goto(app.url, { waitUntil: 'networkidle2', timeout: 10000 }).catch(e => console.log('Navigation timeout for ' + app.name));
       
-      // Wait an extra second for animations
-      await new Promise(r => setTimeout(r, 2000));
+      await page.goto(app.url, { waitUntil: 'networkidle2', timeout: 8000 }).catch(e => console.log('Navigation timeout for ' + app.name));
+      
+      if (app.id === 'boomr' || app.id === 'beredskapsplan') {
+         console.log(`Checking for passcode input on ${app.id}...`);
+         try {
+           await page.waitForSelector('input', { timeout: 3000 });
+           console.log(`Filling passcode for ${app.id}...`);
+           await page.type('input', '68092659');
+           await page.keyboard.press('Enter');
+           
+           // wait for page to reload and UI to settle
+           await new Promise(r => setTimeout(r, 4000));
+         } catch(e) {
+           console.log(`No password input found or timeout for ${app.id}.`);
+         }
+      } else {
+        // Just wait a little bit for rendering
+        await new Promise(r => setTimeout(r, 2000));
+      }
       
       const outPath = path.join(outDir, `${app.id}.jpg`);
-      await page.screenshot({ path: outPath, type: 'jpeg', quality: 80 });
+      await page.screenshot({ path: outPath, type: 'jpeg', quality: 90 });
       console.log(`Saved screenshot to ${outPath}`);
       await page.close();
     } catch (err) {
