@@ -84,12 +84,19 @@ body {
 .pin-row {
   display: flex;
   gap: 12px;
+  width: 100%;
+  max-width: 100vw;
+  padding: 0 1rem;
+  justify-content: center;
   animation: lockFadeIn 1.4s ease-out;
 }
 
 .pin-box {
   width: 52px;
   height: 68px;
+  flex: 1 1 0px;
+  min-width: 0;
+  max-width: 52px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-sm);
   background: rgba(15, 23, 42, 0.5);
@@ -101,11 +108,13 @@ body {
   caret-color: var(--accent);
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 .pin-box::-webkit-outer-spin-button,
 .pin-box::-webkit-inner-spin-button {
   -webkit-appearance: none;
+  appearance: none;
   margin: 0;
 }
 
@@ -322,6 +331,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   display: block;
+  max-width: 100%;
 }
 
 /* ════════════════════════════════════════════════
@@ -332,38 +342,89 @@ body {
   .portal-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .portal-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .portal {
+    padding: 2rem 1.5rem 3rem;
+  }
+  .portal-title {
+    font-size: 2.2rem;
+  }
 }
 
 @media (max-width: 640px) {
+  .portal-header {
+    margin-bottom: 2rem;
+  }
+
   .portal-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .portal-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    padding: 0 1rem;
   }
 
   .portal {
-    padding: 2rem 1rem 3rem;
+    padding: 1.5rem 0.5rem 2rem;
   }
 
   .portal-grid {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 0 0.5rem;
   }
 
   .lock-text {
-    font-size: 0.9rem;
-    letter-spacing: 0.25em;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    padding: 0 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
   }
 
   .pin-box {
-    width: 40px;
-    height: 56px;
+    width: min(8vw, 36px);
+    max-width: none;
+    height: min(12vw, 48px);
     font-size: 1.2rem;
+    border-radius: 6px;
+    flex: none;
   }
 
   .pin-row {
-    gap: 8px;
+    gap: min(1.5vw, 6px);
+    padding: 0 0.5rem;
   }
 
   .portal-logout {
     top: 1rem;
     right: 1rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .pin-box {
+    width: min(8.5vw, 32px);
+    height: min(13vw, 42px);
+    font-size: 1.1rem;
+  }
+  
+  .pin-row {
+    gap: 3px;
+    padding: 0;
+  }
+  
+  .card-title {
+    font-size: 1.15rem;
   }
 }

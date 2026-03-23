@@ -1,17 +1,35 @@
 import React from 'react';
 
 const AppCard = ({ app }) => {
-  // Extract hostname for display
+  // Extract hostname and dynamically update link based on current domain
+  let finalUrl = app.url;
   let displayUrl = '';
+
   try {
     const u = new URL(app.url);
+    const host = window.location.hostname;
+    
+    // If not on local IPs or localhost, and not on github.io, we assume it's a custom domain
+    if (host !== 'localhost' && !host.includes('192.168.19.13') && !host.includes('github.io')) {
+      // Extract base domain (e.g., portal.domain.com -> domain.com)
+      const hostParts = host.split('.');
+      const baseDomain = hostParts.length > 2 ? hostParts.slice(-2).join('.') : host;
+      
+      // Update the hardcoded nip.io URL to use the dynamic base domain
+      u.hostname = u.hostname.replace('192.168.19.13.nip.io', baseDomain);
+      
+      // Force HTTPS for external domains
+      u.protocol = 'https:';
+    }
+    
+    finalUrl = u.toString();
     displayUrl = u.hostname + (u.pathname !== '/' ? u.pathname : '');
   } catch {
     displayUrl = app.url;
   }
 
   return (
-    <a href={app.url} className="card" target="_blank" rel="noopener noreferrer">
+    <a href={finalUrl} className="card" target="_blank" rel="noopener noreferrer">
       <div className="card-image-wrapper">
         <img
           src={app.image}

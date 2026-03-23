@@ -18,30 +18,31 @@ const apps = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'src/data/apps.
     console.log(`Taking screenshot of ${app.name} at ${app.url}...`);
     try {
       const page = await browser.newPage();
-      await page.setViewport({ width: 1280, height: 800 });
+      await page.setViewport({ width: 1280, height: 720 });
       
-      await page.goto(app.url, { waitUntil: 'networkidle2', timeout: 8000 }).catch(e => console.log('Navigation timeout for ' + app.name));
+      await page.goto(app.url, { waitUntil: 'networkidle2', timeout: 15000 }).catch(e => console.log('Navigation timeout for ' + app.name));
       
-      if (app.id === 'boomr' || app.id === 'beredskapsplan') {
+      try {
+         // Attempt to find a password input and fill it, not just for boomr/beredskapsplan but maybe all have it?
+         // Actually let's just do it for all apps just in case, it will timeout if not found, catching the error successfully.
          console.log(`Checking for passcode input on ${app.id}...`);
-         try {
-           await page.waitForSelector('input', { timeout: 3000 });
-           console.log(`Filling passcode for ${app.id}...`);
-           await page.type('input', '68092659');
-           await page.keyboard.press('Enter');
-           
-           // wait for page to reload and UI to settle
-           await new Promise(r => setTimeout(r, 4000));
-         } catch(e) {
-           console.log(`No password input found or timeout for ${app.id}.`);
-         }
-      } else {
-        // Just wait a little bit for rendering
-        await new Promise(r => setTimeout(r, 2000));
+         await page.waitForSelector('input', { timeout: 3000 });
+         console.log(`Filling passcode for ${app.id}...`);
+         await page.type('input', '68092659');
+         await page.keyboard.press('Enter');
+         
+         // wait for page to reload and UI to settle
+         await new Promise(r => setTimeout(r, 6000));
+      } catch(e) {
+         console.log(`No password input found or timeout for ${app.id}. Proceeding as normal.`);
+         await new Promise(r => setTimeout(r, 3000));
       }
       
-      const outPath = path.join(outDir, `${app.id}.jpg`);
-      await page.screenshot({ path: outPath, type: 'jpeg', quality: 90 });
+      // hide scrollbars
+      await page.addStyleTag({content: '::-webkit-scrollbar { display: none !important; }'});
+      
+      const outPath = path.join(outDir, `${app.id}.png`);
+      await page.screenshot({ path: outPath, type: 'png' });
       console.log(`Saved screenshot to ${outPath}`);
       await page.close();
     } catch (err) {
